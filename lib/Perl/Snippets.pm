@@ -23,9 +23,13 @@ code that are specific to Perl programming), but not always.
 =head2 Arrays (ARY)
 
 
+
+
 =head2 Arrays / Sorting arrays (ARY/SORT)
 
-=item * snippet ARY/SORT/1
+
+
+=head3 snippet ARY/SORT/1
 
  my @sorted = map  { $_->[0] }
               sort { $a->[1] <=> $b->[1] }
@@ -41,17 +45,21 @@ case-insensitive sorting).
 Related documentation: L<https://en.wikipedia.org/wiki/Schwartzian_transform>
 
 
+
+
 =head2 Hashes (HASH)
+
+
 
 
 =head2 I/O (IO)
 
 
+
+
 =head2 I/O / File I/O (IO/FILE)
 
-=over
-
-=item * snippet IO/FILE/1
+=head3 snippet IO/FILE/1
 
  my $content = do { local $/; <$fh> };
 
@@ -59,18 +67,18 @@ The above snippet slurps the whole file (which has been opened with filehandle
 C<$fh>) into memory (scalar variable). The C<do {}> block localizes the effect
 of C<$/>. If you start from a filename and want to open it first:
 
-=item * snippet IO/FILE/2
+=head3 snippet IO/FILE/2
 
  my $content = do { local $/; open my $fh, "<", $filename; <$fh> };
 
-=item * snippet IO/FILE/3
+=head3 snippet IO/FILE/3
 
  my @lines = do { local $/; open my $fh, "<", $filename; <$fh> };
 
 Like the previous snippet but you get the content as an array of lines. Each
 line still has their terminating newlines. If you want to trim those:
 
-=item * snippet IO/FILE/4
+=head3 snippet IO/FILE/4
 
  chomp(my @lines = do { local $/; open my $fh, "<", $filename; <$fh> });
 
@@ -78,14 +86,12 @@ Related modules: L<File::Slurper>.
 
 Related documentation: C<$/> in L<perlvar>.
 
-=back
+
 
 
 =head2 Modules (MOD)
 
-=over
-
-=item * snippet MOD/LOAD/1
+=head3 snippet MOD/LOAD/1
 
  { (my $mod_pm = "$mod.pm") =~ s!::!/!g; require $mod_pm }
 
@@ -102,7 +108,7 @@ Related modules: L<Module::Load>
 
 Related documentation: C<require> in L<perlfunc>.
 
-=item * snippet MOD/LOAD/2
+=head3 snippet MOD/LOAD/2
 
  require Foo::Bar; Foo::Bar->import("baz", "qux");
 
@@ -111,7 +117,7 @@ It is the run-time equivalent of C<< use Foo::Bar "baz", "qux"; >>. C<< require
 Foo::Bar; >> itself is the run-time equivalent of C<< use Foo::Bar (); >>, i.e.
 loading a module without importing anything from it.
 
-=back
+
 
 
 =head2 Process / Child process (PROC/CHLD)
@@ -120,7 +126,7 @@ Some bit-fiddling and logic is needed to extract exit code from C<$?>
 (C<$CHILD_ERROR>). L<Process::Status> makes things easier by presenting you with
 an object that you can query, but if you just want an exit code:
 
-=item * snippet PROC/CHLD/1
+=head3 snippet PROC/CHLD/1
 
  my ($exit_code, $signal, $core_dump) = ($? < 0 ? $? : $? >> 8, $? & 127, $? & 128);
 
@@ -129,7 +135,7 @@ can be -1 to mean there is no child process being created due to an execution
 error, e.g. C<system "non-existent-command">), what signal the child process
 dies from, and whether the child process dumps core.
 
-=item * snippet PROC/CHLD/2
+=head3 snippet PROC/CHLD/2
 
  my $exit_code = $? < 0 ? $? : $? >> 8.
 
@@ -141,19 +147,27 @@ Related modules: L<Process::Status>, L<Proc::ChildError>.
 
 Related documentation: C<$?> in L<perlvar>.
 
-=back
+
 
 
 =head2 Objects (OBJ)
 
 
+
+
 =head2 References (REF)
+
+
 
 
 =head2 Subroutines (SUB)
 
 
+
+
 =head2 Subroutines / subroutine arguments (SUB/ARG)
+
+
 
 
 =head1 SEE ALSO
