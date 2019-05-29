@@ -175,3 +175,5 @@ Related documentation: C<$?> in L<perlvar>.
 L<Common Perl idioms (2004)|https://www.perlmonks.org/?node_id=376948>
 
 The Idioms subchapter in the Modern Perl book. L<http://modernperlbooks.com/>
+
+L<perlsecret>
